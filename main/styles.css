@@ -1,0 +1,85 @@
+body {
+  background-color: #000;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-group input[type="number"] {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: #111;
+  color: white;
+}
+
+#scu-suffix {
+  min-width: 2.5rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.input-group select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: #111;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #001f3f;
+  border: 2px solid white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px white; /* fallback visible border */
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+
+th {
+  background-color: #003366;
+}
+
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #scu-suffix {
+    align-self: flex-end;
+    margin-top: -1.5rem;
+  }
+}
