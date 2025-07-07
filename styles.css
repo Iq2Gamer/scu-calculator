@@ -73,6 +73,14 @@ th {
   background-color: #003366;
 }
 
+footer > p {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: lightgray;
+}
+
 @media (max-width: 600px) {
   .input-group {
     flex-direction: column;
