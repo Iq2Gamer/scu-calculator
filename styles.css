@@ -28,7 +28,7 @@ h1 {
   gap: 1rem;
 }
 
-.input-group input[type="number"] {
+.input-group input[type="number"], #id_vehicle {
   flex: 1;
   padding: 0.5rem;
   font-size: 1rem;
@@ -44,6 +44,12 @@ h1 {
   color: #ccc;
 }
 
+#vehicle-scu-suffix {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  columns: #ccc;
+}
+
 .input-group select {
   padding: 0.5rem;
   font-size: 1rem;
@@ -51,6 +57,10 @@ h1 {
   border: 1px solid white;
   background-color: #111;
   color: white;
+}
+
+#vehicle-group, #manual-group {
+  display: none;
 }
 
 table {

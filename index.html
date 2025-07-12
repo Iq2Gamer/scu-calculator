@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="version" content="1.1"/>
+  <meta name="version" content="2.0"/>
   <meta name="keywords" content="star citizen, cargo, calculator, iq2gamer" />
   <title>SCU Box Calculator</title>
   <link rel="stylesheet" href="styles.css" />
@@ -12,10 +12,28 @@
   <div class="container">
     <h1>SCU Box Calculator</h1>
     <div class="input-group">
-      <label for="total-scu">Total SCU</label>
-      <input type="number" id="total-scu" min="0" placeholder="Enter SCU" />
-      <span id="scu-suffix">scu</span>
-    </div>
+    <h3>
+      <label for="scu_calculation">How would you like to calculate SCU?</label>
+      </h3>
+      <form id="scu_calculation">
+        <input type="radio" id="ship_name_automatic" name="calculator_option" value="ship_name_automatic">
+        <label for="ship_name_automatic">Vehicle Max SCU</label>
+        <input type="radio" id="manual_scu" name="calculator_option" value="manual_scu">
+        <label for="manual_scu">Manual</label>
+      </form>
+  </div>
+    <div class="input-group" id="vehicle-group">
+  <label for="id_vehicle"> Vehicle </label>
+  <input type="text" id="id_vehicle" list="list_vehicles" maxlength="100" ondblclick="input_clear(this)" placeholder="I.E. Avenger Titan" value="" autocomplete="off" title="Enter a vehicle name. Press 'Enter' to submit.">
+  <span id="vehicle-scu-display" style="margin-left: 0.5em;"></span>
+</div>
+
+<div class="input-group" id="manual-group">
+  <label for="total-scu">Total SCU</label>
+  <input type="number" id="total-scu" ondblclick="input_clear(this)" min="0" placeholder="Enter SCU" />
+  <span id="scu-suffix">scu</span>
+</div>
+
 
     <div class="input-group">
       <label for="box-size">Max Box Size</label>
@@ -28,7 +46,9 @@
         <option value="32">32 scu</option>
       </select>
     </div>
-
+ <p>
+    <i>Does not take into account max scu size container for ship nor max amount of each type.</i>
+  </p>
     <table>
       <thead>
         <tr>
@@ -45,8 +65,137 @@
   <script src="script.js"></script>
 </body>
 <footer>
+  <datalist id="list_vehicles">
+    <option value="100i" data-value="2" data-description="100i">Origin 100i</option>
+    <option value="125a" data-value="2" data-description="125a">Origin 125a</option>
+    <option value="135c" data-value="6" data-description="135c">Origin 135c</option>
+    <option value="300i" data-value="8" data-description="300i">Origin 300i</option>
+    <option value="315p" data-value="12" data-description="315p">Origin 315p</option>
+    <option value="325a" data-value="4" data-description="325a">Origin 325a</option>
+    <option value="350r" data-value="4" data-description="350r">Origin 350r</option>
+    <option value="400i" data-value="42" data-description="400i">Origin 400i</option>
+    <option value="600i Executive Edition" data-value="40" data-description="600i Executive Edition">Origin 600i Executive Edition</option>
+    <option value="600i Explorer" data-value="44" data-description="600i Explorer">Origin 600i Explorer</option>
+    <option value="600i Touring" data-value="20" data-description="600i Touring">Origin 600i Touring</option>
+    <option value="890 Jump" data-value="388" data-description="890 Jump">Origin 890 Jump</option>
+    <option value="A2 Hercules Starlifter" data-value="234" data-description="A2 Hercules Starlifter">Crusader A2 Hercules Starlifter</option>
+    <option value="Apollo Medivac" data-value="28" data-description="Apollo Medivac">RSI Apollo Medivac</option>
+    <option value="Apollo Triage" data-value="28" data-description="Apollo Triage">RSI Apollo Triage</option>
+    <option value="Asgard" data-value="180" data-description="Asgard">Anvil Asgard</option>
+    <option value="ATLS IKTI" data-value="0.8" data-description="ATLS IKTI">Argo ATLS IKTI</option>
+    <option value="ATLS IKTI GEO" data-value="0.8" data-description="ATLS IKTI GEO">Argo ATLS IKTI GEO</option>
+    <option value="ATLS IKTI GEO Rad" data-value="0.8" data-description="ATLS IKTI GEO Rad">Argo ATLS IKTI GEO Rad</option>
+    <option value="ATLS IKTI Rad" data-value="0.8" data-description="ATLS IKTI Rad">Argo ATLS IKTI Rad</option>
+    <option value="Aurora CL" data-value="6" data-description="Aurora CL">RSI Aurora CL</option>
+    <option value="Aurora ES" data-value="3" data-description="Aurora ES">RSI Aurora ES</option>
+    <option value="Aurora LN" data-value="3" data-description="Aurora LN">RSI Aurora LN</option>
+    <option value="Aurora LX" data-value="3" data-description="Aurora LX">RSI Aurora LX</option>
+    <option value="Aurora MR" data-value="3" data-description="Aurora MR">RSI Aurora MR</option>
+    <option value="Avenger Titan" data-value="8" data-description="Avenger Titan">Aegis Avenger Titan</option>
+    <option value="Avenger Titan Renegade" data-value="8" data-description="Avenger Titan Renegade">Aegis Avenger Titan Renegade</option>
+    <option value="C1 Spirit" data-value="64" data-description="C1 Spirit">Crusader C1 Spirit</option>
+    <option value="C2 Hercules Starlifter" data-value="696" data-description="C2 Hercules Starlifter">Crusader C2 Hercules Starlifter</option>
+    <option value="C8 Pisces" data-value="4" data-description="C8 Pisces">Anvil C8 Pisces</option>
+    <option value="C8X Pisces Expedition" data-value="4" data-description="C8X Pisces Expedition">Anvil C8X Pisces Expedition</option>
+    <option value="Carrack" data-value="456" data-description="Carrack">Anvil Carrack</option>
+    <option value="Carrack Expedition" data-value="456" data-description="Carrack Expedition">Anvil Carrack Expedition</option>
+    <option value="Caterpillar" data-value="576" data-description="Caterpillar">Drake Caterpillar</option>
+    <option value="Caterpillar Best In Show Edition" data-value="576" data-description="Caterpillar Best In Show Edition">Drake Caterpillar Best In Show Edition</option>
+    <option value="Caterpillar Pirate Edition" data-value="576" data-description="Caterpillar Pirate Edition">Drake Caterpillar Pirate Edition</option>
+    <option value="Constellation Andromeda" data-value="96" data-description="Constellation Andromeda">RSI Constellation Andromeda</option>
+    <option value="Constellation Aquila" data-value="96" data-description="Constellation Aquila">RSI Constellation Aquila</option>
+    <option value="Constellation Phoenix" data-value="80" data-description="Constellation Phoenix">RSI Constellation Phoenix</option>
+    <option value="Constellation Phoenix Emerald" data-value="80" data-description="Constellation Phoenix Emerald">RSI Constellation Phoenix Emerald</option>
+    <option value="Constellation Taurus" data-value="174" data-description="Constellation Taurus">RSI Constellation Taurus</option>
+    <option value="Corsair" data-value="72" data-description="Corsair">Drake Corsair</option>
+    <option value="Crucible" data-value="240" data-description="Crucible">Anvil Crucible</option>
+    <option value="CSV-FM" data-value="4" data-description="CSV-FM">Argo CSV-FM</option>
+    <option value="CSV-SM" data-value="4" data-description="CSV-SM">Argo CSV-SM</option>
+    <option value="Cutlass Black" data-value="46" data-description="Cutlass Black">Drake Cutlass Black</option>
+    <option value="Cutlass Black Best In Show Edition" data-value="46" data-description="Cutlass Black Best In Show Edition">Drake Cutlass Black Best In Show Edition</option>
+    <option value="Cutlass Blue" data-value="12" data-description="Cutlass Blue">Drake Cutlass Blue</option>
+    <option value="Cutlass Red" data-value="12" data-description="Cutlass Red">Drake Cutlass Red</option>
+    <option value="Cutlass Steel" data-value="0" data-description="Cutlass Steel">Drake Cutlass Red</option>
+    <option value="Cutter" data-value="4" data-description="Cutter">Drake Cutter</option>
+    <option value="Cutter Rambler" data-value="2" data-description="Cutter Rambler">Drake Cutter Rambler</option>
+    <option value="Cutter Scout" data-value="2" data-description="Cutter Scout">Drake Cutter Scout</option>
+    <option value="Cyclone" data-value="1" data-description="Cyclone">Tumbril Cyclone</option>
+    <option value="Endeavor" data-value="500" data-description="Endeavor">MISC Endeavor</option>
+    <option value="Expanse" data-value="128" data-description="Expanse">MISC Expanse</option>
+    <option value="F7C Hornet Mk I" data-value="2" data-description="F7C Hornet Mk I">Anvil F7C Hornet Mk I</option>
+    <option value="F7C Hornet Wildfire Mk I" data-value="2" data-description="F7C Hornet Wildfire Mk I">F7C Hornet Wildfire Mk I</option>
+    <option value="Fortune" data-value="12" data-description="Fortune">MISC Fortune</option>
+    <option value="Freelancer" data-value="66" data-description="Freelancer">MISC Freelancer</option>
+    <option value="Freelancer DUR" data-value="36" data-description="Freelancer DUR">MISC Freelancer DUR</option>
+    <option value="Freelancer MAX" data-value="120" data-description="Freelancer MAX">MISC Freelancer MAX</option>
+    <option value="Freelancer MIS" data-value="36" data-description="Freelancer MIS">MISC Freelancer MIS</option>
+    <option value="G12" data-value="2" data-description="G12">Origin G12</option>
+    <option value="Galaxy" data-value="64" data-description="Galaxy">RSI Galaxy</option>
+    <option value="Genesis Starliner" data-value="300" data-description="Genesis Starliner">Crusader Genesis Starliner</option>
+    <option value="Hammerhead" data-value="40" data-description="Hammerhead">AegisHammerhead</option>
+    <option value="Hammerhead Best In Show Edition" data-value="40" data-description="Hammerhead Best In Show Edition">Aegis Hammerhead Best In Show Edition</option>
+    <option value="Hull A" data-value="64" data-description="Hull A">MISC Hull A</option>
+    <option value="Hull B" data-value="384" data-description="Hull B">MISC Hull B</option>
+    <option value="Hull C" data-value="4608" data-description="Hull C">MISC Hull C</option>
+    <option value="Hull D" data-value="20736" data-description="Hull D">MISC Hull D</option>
+    <option value="Hull E" data-value="98304" data-description="Hull E">MISC Hull E</option>
+    <option value="Idris-M" data-value="1168" data-description="Idris-M">Aegis Idris-M</option>
+    <option value="Idris-P" data-value="1374" data-description="Idris-P">Aegis Idris-P</option>
+    <option value="Intrepid" data-value="8" data-description="Intrepid">Crusader Intrepid</option>
+    <option value="Ironclad" data-value="1536" data-description="Ironclad">Drake Ironclad</option>
+    <option value="Ironclad Assault" data-value="1152" data-description="Ironclad Assault">Drake Ironclad Assault</option>
+    <option value="Javelin" data-value="5400" data-description="Javelin">Aegis Javelin</option>
+    <option value="Kraken" data-value="3792" data-description="Kraken">Drake Kraken</option>
+    <option value="Kraken Privateer" data-value="768" data-description="Kraken Privateer">Drake Kraken Privateer</option>
+    <option value="Liberator" data-value="400" data-description="Liberator">Anvil Liberator</option>
+    <option value="M2 Hercules Starlifter" data-value="522" data-description="M2 Hercules Starlifter">Crusader M2 Hercules Starlifter</option>
+    <option value="Merchantman" data-value="2880" data-description="Merchantman">Banu Merchantman</option>
+    <option value="Mercury Star Runner" data-value="114" data-description="Mercury Star Runner">Crusader Mercury Star Runner</option>
+    <option value="MPUV Cargo" data-value="2" data-description="MPUV Cargo">Argo MPUV Cargo</option>
+    <option value="MPUV Tractor" data-value="16" data-description="MPUV Tractor">Argo MPUV Tractor</option>
+    <option value="MTC" data-value="1" data-description="MTC">Greycat MTC</option>
+    <option value="MULE" data-value="2" data-description="MULE">Drake MULE</option>
+    <option value="Mustang Alpha" data-value="4" data-description="Mustang Alpha">C.O. Mustang Alpha</option>
+    <option value="Mustang Alpha Vindicator" data-value="4" data-description="Mustang Alpha Vindicator">C.O. Mustang Alpha Vindicator</option>
+    <option value="Nautilus" data-value="64" data-description="Nautilus">Aegis Nautilus</option>
+    <option value="Nautilus Solstice Edition" data-value="64" data-description="Nautilus Solstice Edition">Aegis Nautilus Solstice Edition</option>
+    <option value="Nomad" data-value="24" data-description="Nomad">C.O. Nomad</option>
+    <option value="Odyssey" data-value="252" data-description="Odyssey">MISC Odyssey</option>
+    <option value="Perseus" data-value="50" data-description="Perseus">RSI Perseus</option>
+    <option value="Pioneer" data-value="1000" data-description="Pioneer">C.O. Pioneer</option>
+    <option value="Polaris" data-value="576" data-description="Polaris">RSI Polaris</option>
+    <option value="Prowler Utility" data-value="32" data-description="Prowler Utility">Esperia Prowler Utility</option>
+    <option value="RAFT" data-value="192" data-description="RAFT">Argo RAFT</option>
+    <option value="Railen" data-value="320" data-description="Railen">Gatac Railen</option>
+    <option value="Reclaimer" data-value="420" data-description="Reclaimer">Aegis Reclaimer</option>
+    <option value="Reclaimer Best In Show Edition" data-value="420" data-description="Reclaimer Best In Show Edition">Reclaimer Best In Show Edition</option>
+    <option value="Redeemer" data-value="2" data-description="Redeemer">Aegis Redeemer</option>
+    <option value="Reliant Kore" data-value="6" data-description="Reliant Kore">MISC Reliant Kore</option>
+    <option value="Reliant Sen" data-value="2" data-description="Reliant Sen">MISC Reliant Sen</option>
+    <option value="Reliant Tana" data-value="1" data-description="Reliant Tana">MISC Reliant Tana</option>
+    <option value="Retaliator" data-value="74" data-description="Retaliator">Aegis Retaliator</option>
+    <option value="Retaliator Bomber" data-value="74" data-description="Retaliator Bomber">Aegis Retaliator Bomber</option>
+    <option value="Retaliator Cargo Module - Bow" data-value="38" data-description="Retaliator Cargo Module - Bow">Retaliator Cargo Module - Bow</option>
+    <option value="Retaliator Cargo Module - Stern" data-value="36" data-description="Retaliator Cargo Module - Stern">Retaliator Cargo Module - Stern</option>
+    <option value="SRV" data-value="12" data-description="SRV">Argo SRV</option>
+    <option value="Starfarer" data-value="291" data-description="Starfarer">MISC Starfarer</option>
+    <option value="Starfarer Gemini" data-value="291" data-description="Starfarer Gemini">MISC Starfarer Gemini</option>
+    <option value="Starlancer MAX" data-value="224" data-description="Starlancer MAX">MISC Starlancer MAX</option>
+    <option value="Starlancer TAC" data-value="96" data-description="Starlancer TAC">MISC Starlancer TAC</option>
+    <option value="Syulen" data-value="6" data-description="Syulen">Gatac Syulen</option>
+    <option value="Ursa" data-value="2" data-description="Ursa">RSI Ursa</option>
+    <option value="Ursa Fortuna" data-value="2" data-description="Ursa Fortuna">RSI Ursa Fortuna</option>
+    <option value="Valkyrie" data-value="90" data-description="Valkyrie">Anvil Valkyrie</option>
+    <option value="Valkyrie Liberator Edition" data-value="30" data-description="Valkyrie Liberator Edition">Anvil Valkyrie Liberator Edition</option>
+    <option value="Vulcan" data-value="12" data-description="Vulcan">Aegis Vulcan</option>
+    <option value="Vulture" data-value="12" data-description="Vulture">Drake Vulture</option>
+    <option value="Zeus Mk II CL" data-value="128" data-description="Zeus Mk II CL">RSI Zeus Mk II CL</option>
+    <option value="Zeus Mk II ES" data-value="32" data-description="Zeus Mk II ES">RSI Zeus Mk II ES</option>
+    <option value="Zeus Mk II MR" data-value="16" data-description="Zeus Mk II MR">RSI Zeus Mk II MR</option>
+  </datalist>
   <p>
-    <i>*Maximizes size over numbers. Not responsible for total scu not fitting in your ship.</i>
+    <i>*Maximizes size over numbers. Not responsible for total scu not fitting in your ship. </i>
   </p>
+ 
 </footer>
 </html>
